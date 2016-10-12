@@ -1,0 +1,18 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "AA:21:3D:E4:CD:31",
+        "port": 51826,
+        "pin": "777-88-999"
+    },
+
+    "description": "Sample-Configuration",
+
+	"accessories": [
+		{
+			"accessory": "LW12-RGB",
+			"name": "RGB Led Strip",
+			"ip" : "192.168.1.59"
+		}
+	]
+}
