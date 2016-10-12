@@ -1,5 +1,4 @@
 var Service, Characteristic;
-var request = require('request');
 
 /**
  * @module homebridge
