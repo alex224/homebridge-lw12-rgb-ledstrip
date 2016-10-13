@@ -33,12 +33,12 @@ module.exports = function (ip) {
 	}
 
 	module.setBrightness = function (value, callback) {
-		var rgb = hsb2rgb(module.state.hue, module.state.saturation, value);
-		setColor(rgb.r, rgb.g, rgb.b, function(result) {
-			if (result) {
+		var brightnessMessage = "7e0401" + decimalToHex(value, 2) + "ffffff00ef";
+		sendHexString(state ? onMessage : offMessage, function(success) {
+			if (success) {
 				module.state.brightness = value;
 			}
-			callback(result);
+			callback(success)
 		});
     };
 
@@ -47,7 +47,7 @@ module.exports = function (ip) {
 	}
 
 	module.setHue = function (value, callback) {
-		var rgb = hsb2rgb(value, module.state.saturation, module.state.brightness);
+		var rgb = hsb2rgb(value, module.state.saturation, 100);
 		setColor(rgb.r, rgb.g, rgb.b, function(result) {
 			if (result) {
 				module.state.hue = value;
@@ -61,7 +61,7 @@ module.exports = function (ip) {
 	}
 
 	module.setSaturation = function (value, callback) {
-		var rgb = hsb2rgb(module.state.hue, value, module.state.brightness);
+		var rgb = hsb2rgb(module.state.hue, value, 100);
 		setColor(rgb.r, rgb.g, rgb.b, function(result) {
 			if (result) {
 				module.state.saturation = value;
