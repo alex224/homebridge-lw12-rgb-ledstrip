@@ -34,7 +34,7 @@ module.exports = function (ip) {
 
 	module.setBrightness = function (value, callback) {
 		var brightnessMessage = "7e0401" + decimalToHex(value, 2) + "ffffff00ef";
-		sendHexString(state ? onMessage : offMessage, function(success) {
+		sendHexString(brightnessMessage, function(success) {
 			if (success) {
 				module.state.brightness = value;
 			}
